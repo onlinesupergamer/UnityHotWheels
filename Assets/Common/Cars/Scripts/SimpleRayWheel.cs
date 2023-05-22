@@ -36,8 +36,8 @@ public class SimpleRayWheel : MonoBehaviour
             Vector3 springDir = transform.up; //Make sure to project the forces relative to the track normal since
             //transform.up creates balance issues with the upward suspension forces because its fucking stupid
 
-            //Edit: NEVER MIND; THE NORMALS CREATE ISSUES BECAUSE OF RAPID SPEED THE CAR WILL BOUNCE EVEN WITH OVER 5.9 MILLION VERTICES
-            //THIS WHOLE PROCESS IS FUCKING STUPID JUST TO GET BASIC SUSPENSION
+            //Edit: NEVER MIND; THE NORMALS CREATE ISSUES BECAUSE OF I DONT FUCKING KNOW AND THE CAR WILL BOUNCE EVEN WITH OVER 5.9 MILLION VERTICES
+            //THIS WHOLE PROCESS IS STUPID JUST TO GET BASIC SUSPENSION
             //GAME FUCK STUPID
 
             Vector3 tireWorldVelocity = rb.GetPointVelocity(transform.position);
@@ -53,7 +53,7 @@ public class SimpleRayWheel : MonoBehaviour
             wheelPos = transform.localPosition;
             wheelPos.y = transform.localPosition.y - _hit.distance + wheelModelOffset;
 
-            //Mathf.Clamp(wheelPos.y, -1f, 0.1f);
+            
 
             wheelModel.transform.localPosition = wheelPos;
 
@@ -64,9 +64,8 @@ public class SimpleRayWheel : MonoBehaviour
             driveScript.isGrounded = false;
 
             wheelPos = transform.localPosition;
-            //Mathf.Clamp(wheelPos.y, -1f, 0.1f);
-            wheelPos.y = transform.localPosition.y - _hit.distance;
-
+            wheelPos.y = transform.localPosition.y - rayDistance + wheelModelOffset;
+            wheelModel.transform.localPosition = wheelPos;
 
         }
 

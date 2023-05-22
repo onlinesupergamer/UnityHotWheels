@@ -288,7 +288,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2442990925248624720}
   m_LocalRotation: {x: 0.00000049173826, y: -5.684342e-14, z: 9.081627e-14, w: 1}
-  m_LocalPosition: {x: 0.00405, y: 0.00138, z: -0.00871}
+  m_LocalPosition: {x: 0.00405, y: -0.00168, z: -0.00871}
   m_LocalScale: {x: 0.009479506, y: 0.010000002, z: 0.010000002}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -309,10 +309,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wheelModel: {fileID: 5905973091929044966}
-  restDistance: 0.65
-  springStrength: 100000
-  springDamper: 2500
-  rayDistance: 1
+  restDistance: 0.3
+  springStrength: 150000
+  springDamper: 1500
+  rayDistance: 0.4
   wheelModelOffset: 0.27
 --- !u!1 &2759872739620848398
 GameObject:
@@ -339,7 +339,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2759872739620848398}
   m_LocalRotation: {x: 0.00000049173826, y: -5.684342e-14, z: 9.081627e-14, w: 1}
-  m_LocalPosition: {x: 0.00436, y: 0.00098, z: 0.00971}
+  m_LocalPosition: {x: 0.00436, y: -0.0022, z: 0.00971}
   m_LocalScale: {x: 0.010000002, y: 0.010000002, z: 0.010000002}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -360,11 +360,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wheelModel: {fileID: 8806340317892262935}
-  restDistance: 0.55
-  springStrength: 100000
-  springDamper: 2500
-  rayDistance: 0.8
-  wheelModelOffset: 0.24
+  restDistance: 0.2
+  springStrength: 150000
+  springDamper: 1500
+  rayDistance: 0.25
+  wheelModelOffset: 0.215
 --- !u!1 &3127228465333062376
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,7 +628,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4914931783987047116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.287, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 0.288949, y: 0.288949, z: 0.288949}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -693,8 +693,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6703487891074922912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.00052, z: 0}
-  m_LocalScale: {x: 1, y: 0.8636064, z: 1}
+  m_LocalPosition: {x: -0, y: 0.0002, z: -0}
+  m_LocalScale: {x: 1, y: 0.92949957, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 882623744508185241}
@@ -862,7 +862,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6990872776126973223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.287, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -0.23, y: -0.23, z: -0.23}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -980,7 +980,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8215432759309654443}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.287, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -0.288949, y: -0.288949, z: -0.288949}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1014,7 +1014,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8216303818417855872}
   m_LocalRotation: {x: 0.00000049173826, y: -5.684342e-14, z: 9.081627e-14, w: 1}
-  m_LocalPosition: {x: -0.00436, y: 0.00098, z: 0.00971}
+  m_LocalPosition: {x: -0.00436, y: -0.0022, z: 0.00971}
   m_LocalScale: {x: 0.010000002, y: 0.010000002, z: 0.010000002}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1035,11 +1035,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wheelModel: {fileID: 838607452720750611}
-  restDistance: 0.55
-  springStrength: 100000
-  springDamper: 2500
-  rayDistance: 0.8
-  wheelModelOffset: 0.24
+  restDistance: 0.2
+  springStrength: 150000
+  springDamper: 1500
+  rayDistance: 0.25
+  wheelModelOffset: 0.215
 --- !u!1 &8371942609036670042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,7 +1064,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8371942609036670042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.287, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 0.23, y: 0.23, z: 0.23}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1098,7 +1098,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9155835186147767207}
   m_LocalRotation: {x: 0.00000049173826, y: -5.684342e-14, z: 9.081627e-14, w: 1}
-  m_LocalPosition: {x: -0.00405, y: 0.00138, z: -0.00871}
+  m_LocalPosition: {x: -0.00405, y: -0.00168, z: -0.00871}
   m_LocalScale: {x: 0.009479506, y: 0.010000002, z: 0.010000002}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1119,10 +1119,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wheelModel: {fileID: 7937688889428599763}
-  restDistance: 0.65
-  springStrength: 100000
-  springDamper: 2500
-  rayDistance: 1
+  restDistance: 0.3
+  springStrength: 150000
+  springDamper: 1500
+  rayDistance: 0.4
   wheelModelOffset: 0.27
 --- !u!1 &9161641636134479862
 GameObject:
@@ -1186,17 +1186,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 647bdc192bdca794697494da799749f8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -61.26
+      value: -49.55
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 647bdc192bdca794697494da799749f8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 69.141
+      value: 108.88
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 647bdc192bdca794697494da799749f8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 361.792
+      value: 642.78
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 647bdc192bdca794697494da799749f8,
         type: 3}
@@ -1388,7 +1388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInputs: {fileID: 0}
   steeringMultiplier: 350
-  torqueMultiplier: 5000
+  torqueMultiplier: 2500
   wheelTransforms:
   - {fileID: 8364853001272522457}
   - {fileID: 3017450531418886633}
