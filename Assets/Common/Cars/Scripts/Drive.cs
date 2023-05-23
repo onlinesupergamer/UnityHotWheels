@@ -67,7 +67,7 @@ public class Drive : MonoBehaviour
                 Vector3 steeringDir = wheel.transform.right;
                 Vector3 tireWorldVelocity = rb.GetPointVelocity(wheel.position);
                 float steeringVelocity = Vector3.Dot(steeringDir, tireWorldVelocity);
-                float desiredVelocityChange = -steeringVelocity * 0.35f;                //The multiplier controls grip by a value between 0-1                
+                float desiredVelocityChange = -steeringVelocity * 2.5f;                //The multiplier controls grip by a value between 0-1, Higher means more grip                
                 float desiredAcceleration = desiredVelocityChange / Time.deltaTime;
                 
                 rb.AddForceAtPosition(steeringDir * 5 * desiredAcceleration, wheel.position);
@@ -80,7 +80,7 @@ public class Drive : MonoBehaviour
 
 
             float sideSpeed = Vector3.Dot(rb.velocity, transform.right);
-            Vector3 friction = -transform.right * (sideSpeed / Time.deltaTime);
+            Vector3 friction = -transform.right * (sideSpeed / Time.deltaTime / 4); //Friction Support
             rb.AddForce(friction, ForceMode.Acceleration);
 
             //rb.AddTorque(transform.up * -rb.angularVelocity.y * 3500);
