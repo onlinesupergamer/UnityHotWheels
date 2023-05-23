@@ -27,6 +27,8 @@ public class Drive : MonoBehaviour
     
 
     public RaycastHit hit;
+    public float timeInAir;
+
 
     [HideInInspector]
     public float gravityForce;
@@ -85,6 +87,8 @@ public class Drive : MonoBehaviour
 
             //rb.AddTorque(transform.up * -rb.angularVelocity.y * 3500);
 
+            timeInAir = 0;
+
             if (rb.velocity.magnitude >= 100)
                 rb.velocity = Vector3.ClampMagnitude(rb.velocity, 100);
 
@@ -94,7 +98,12 @@ public class Drive : MonoBehaviour
         {
             gravityForce = 2000;
             gravityVector = -Vector3.up;
+
+            timeInAir += Time.deltaTime;
+
         }
+
+            
 
         foreach (Transform wheel in frontWheels) 
         {
@@ -115,6 +124,7 @@ public class Drive : MonoBehaviour
         
 
     }
+
 
 }
 
