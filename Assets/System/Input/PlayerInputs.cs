@@ -5,12 +5,18 @@ public class PlayerInputs : MonoBehaviour
     public float throttleInput;
     public float steeringInput;
 
+    public GameManager gmManager;
 
     private void Update()
     {
-        throttleInput = Input.GetAxisRaw("Vertical");
-        steeringInput = Input.GetAxisRaw("Horizontal");
 
+        if (gmManager != null && gmManager.hasRaceEnded == false && gmManager.hasRaceStarted == true)
+        {
+
+            throttleInput = Input.GetAxisRaw("Throttle");
+            steeringInput = Input.GetAxisRaw("Steering");
+
+        }
 
     }
     

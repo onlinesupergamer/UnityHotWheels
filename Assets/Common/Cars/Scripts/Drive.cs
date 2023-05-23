@@ -10,20 +10,21 @@ public class Drive : MonoBehaviour
 {
 
     float throttleInput;
-    float steeringInput;
-    
-    public PlayerInputs playerInputs;
+    float steeringInput;       
 
+    PlayerInputs playerInputs;
 
     public float steeringMultiplier;
     public float torqueMultiplier;
 
     public Transform[] wheelTransforms;
     public Transform[] frontWheels;
+    public Transform[] frontWheelModels;
     public bool isGrounded;
 
     Vector3 gravityVector;
-    Rigidbody rb;
+    public Rigidbody rb;
+    
 
     public RaycastHit hit;
 
@@ -31,7 +32,7 @@ public class Drive : MonoBehaviour
     public float gravityForce;
 
 
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         playerInputs = GetComponent<PlayerInputs>();
@@ -43,10 +44,9 @@ public class Drive : MonoBehaviour
         throttleInput = playerInputs.throttleInput;
         steeringInput = playerInputs.steeringInput;
         
-
+        
 
         float speed = Vector3.Dot(transform.forward, rb.velocity);
-
 
         //The code here makes no sense, I don't know how this is working, but it fixed the inverted steering and I don't care why at this point
         if (speed < 0) steeringInput = steeringInput * -1f; else steeringInput = steeringInput * 1f;
@@ -67,7 +67,7 @@ public class Drive : MonoBehaviour
                 Vector3 steeringDir = wheel.transform.right;
                 Vector3 tireWorldVelocity = rb.GetPointVelocity(wheel.position);
                 float steeringVelocity = Vector3.Dot(steeringDir, tireWorldVelocity);
-                float desiredVelocityChange = -steeringVelocity * 2.5f;                //The multiplier controls grip by a value between 0-1, Higher means more grip                
+                float desiredVelocityChange = -steeringVelocity * 2.5f;                //The multiplier controls grip by a value between 0-5, Higher means more grip                
                 float desiredAcceleration = desiredVelocityChange / Time.deltaTime;
                 
                 rb.AddForceAtPosition(steeringDir * 5 * desiredAcceleration, wheel.position);
@@ -80,7 +80,7 @@ public class Drive : MonoBehaviour
 
 
             float sideSpeed = Vector3.Dot(rb.velocity, transform.right);
-            Vector3 friction = -transform.right * (sideSpeed / Time.deltaTime / 4); //Friction Support
+            Vector3 friction = -transform.right * (sideSpeed / Time.deltaTime / 25); //Friction Support
             rb.AddForce(friction, ForceMode.Acceleration);
 
             //rb.AddTorque(transform.up * -rb.angularVelocity.y * 3500);
@@ -98,17 +98,19 @@ public class Drive : MonoBehaviour
 
         foreach (Transform wheel in frontWheels) 
         {
-            float steeringAmount = Mathf.Clamp(steeringMultiplier / speed, -30, 30);
-            wheel.transform.localRotation = Quaternion.Euler(Vector3.up * steeringInput * steeringAmount); //Add Lerp
+            float steeringAmount = Mathf.Clamp(steeringMultiplier / speed, -20, 20);
+            wheel.transform.localRotation = Quaternion.Euler(Vector3.up * steeringInput * (steeringAmount / 1.25f)); //Add Lerp here as the steering force is applied to the rotation, smoothing the rotation may help handling
+
+        }
+
+        foreach (Transform wheel in frontWheelModels)
+        {
+            
+            wheel.transform.localRotation = Quaternion.Euler(Vector3.up * steeringInput * 45f); //Add Lerp
 
         }
 
         rb.AddForce(gravityVector * gravityForce * Time.fixedDeltaTime, ForceMode.Acceleration);
-
-
-
-            
-
 
     }
 

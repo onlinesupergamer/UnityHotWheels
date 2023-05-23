@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d773b30695a0fb49aac2eb6840eae46, type: 3}
+  m_Name: CarDataList
+  m_EditorClassIdentifier: 
+  cars:
+  - carName: Rivited
+    car: {fileID: 537165521306259491, guid: 436081fb83761d244a22a69615ecb1ce, type: 3}
+    carDummyModel: {fileID: 537165521306259491, guid: f719454d9179b8a4b80d9fa160a80ee8,
+      type: 3}
+  - carName: Rivited Alternate
+    car: {fileID: 537165521306259491, guid: f16964b872d503643912b48c589080ff, type: 3}
+    carDummyModel: {fileID: 8216880537983535293, guid: 4a0ff03d3b58fb04887080663887ebf1,
+      type: 3}
