@@ -6,7 +6,6 @@ using Cinemachine;
 public class GameManager : MonoBehaviour
 {
     
-
     public GameObject _PlayerCar;
 
     public bool hasRaceStarted = false;
@@ -15,16 +14,23 @@ public class GameManager : MonoBehaviour
     public Transform spawnLocation;
     public GameObject cameraSystem;
 
+    public GameObject DefaultCar;
     public CinemachineVirtualCamera virtualCamera;
 
 
     void Start()
     {
-       
+
         _PlayerCar = GlobalVariables.selectedCar;
+        if (_PlayerCar == null) 
+        {
+            Debug.LogError("No Player Car Found, setting default model");
+
+            _PlayerCar = DefaultCar;
+        }
         _PlayerCar.GetComponent<PlayerInputs>().gmManager = this;
 
-        if (_PlayerCar == null)Debug.LogError("No Player Car Found");
+
 
         GameObject cartmpbffr =  Instantiate(_PlayerCar, spawnLocation.transform.position, spawnLocation.transform.rotation);
         cartmpbffr.tag = "Player";

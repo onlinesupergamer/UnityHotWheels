@@ -30,7 +30,7 @@ public class Drive : MonoBehaviour
 
     [HideInInspector]
     public float gravityForce;
-
+    public float speed;
 
     private void Awake()
     {
@@ -46,7 +46,7 @@ public class Drive : MonoBehaviour
         
         
 
-        float speed = Vector3.Dot(transform.forward, rb.velocity);
+        speed = Vector3.Dot(transform.forward, rb.velocity);
 
         //The code here makes no sense, I don't know how this is working, but it fixed the inverted steering and I don't care why at this point
         if (speed < 0) steeringInput = steeringInput * -1f; else steeringInput = steeringInput * 1f;
@@ -111,6 +111,8 @@ public class Drive : MonoBehaviour
         }
 
         rb.AddForce(gravityVector * gravityForce * Time.fixedDeltaTime, ForceMode.Acceleration);
+
+        
 
     }
 

@@ -50,3 +50,6 @@ MonoBehaviour:
   spawnLocation: {fileID: 0}
   cameraSystem: {fileID: 4890090542597430379, guid: a07a8bd3096f076468164b454fa6dcea,
     type: 3}
+  DefaultCar: {fileID: 537165521306259491, guid: 436081fb83761d244a22a69615ecb1ce,
+    type: 3}
+  virtualCamera: {fileID: 0}
