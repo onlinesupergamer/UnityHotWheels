@@ -5,6 +5,7 @@ using Unity.Burst.CompilerServices;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Drive : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class Drive : MonoBehaviour
     [HideInInspector]
     public float gravityForce;
     public float speed;
+   
 
     private void Awake()
     {
@@ -45,7 +47,8 @@ public class Drive : MonoBehaviour
     {
         throttleInput = playerInputs.throttleInput;
         steeringInput = playerInputs.steeringInput;
-        
+
+       
         
 
         speed = Vector3.Dot(transform.forward, rb.velocity);
@@ -58,7 +61,7 @@ public class Drive : MonoBehaviour
         if (isGrounded)
         {
 
-            gravityForce = 50;
+            gravityForce = 1500;
 
             if (throttleInput != 0f && speed >= 10f)
                 gravityVector = -hit.normal;
@@ -89,8 +92,13 @@ public class Drive : MonoBehaviour
 
             timeInAir = 0;
 
+            rb.angularDrag = 0;
+
             if (rb.velocity.magnitude >= 100)
                 rb.velocity = Vector3.ClampMagnitude(rb.velocity, 100);
+
+            
+
 
         }
 
@@ -99,9 +107,13 @@ public class Drive : MonoBehaviour
             gravityForce = 2000;
             gravityVector = -Vector3.up;
 
+            rb.angularDrag = 2.5f;
             timeInAir += Time.deltaTime;
 
+
         }
+
+        
 
             
 

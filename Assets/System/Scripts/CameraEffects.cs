@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+/*This whole file needs to be fixed, the component init seems to be wrong
+ * 
+ * 
+ * 
+ * */
 
 public class CameraEffects : MonoBehaviour
 {

@@ -311,7 +311,7 @@ MonoBehaviour:
   wheelModel: {fileID: 5905973091929044966}
   restDistance: 0.3
   springStrength: 150000
-  springDamper: 1500
+  springDamper: 5000
   rayDistance: 0.4
   wheelModelOffset: 0.27
 --- !u!1 &2759872739620848398
@@ -361,8 +361,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wheelModel: {fileID: 8806340317892262935}
   restDistance: 0.2
-  springStrength: 150000
-  springDamper: 1500
+  springStrength: 200000
+  springDamper: 5000
   rayDistance: 0.25
   wheelModelOffset: 0.215
 --- !u!1 &3127228465333062376
@@ -1037,7 +1037,7 @@ MonoBehaviour:
   wheelModel: {fileID: 838607452720750611}
   restDistance: 0.2
   springStrength: 150000
-  springDamper: 1500
+  springDamper: 5000
   rayDistance: 0.25
   wheelModelOffset: 0.215
 --- !u!1 &8371942609036670042
@@ -1121,7 +1121,7 @@ MonoBehaviour:
   wheelModel: {fileID: 7937688889428599763}
   restDistance: 0.3
   springStrength: 150000
-  springDamper: 1500
+  springDamper: 5000
   rayDistance: 0.4
   wheelModelOffset: 0.27
 --- !u!1 &9161641636134479862
@@ -1166,7 +1166,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 647bdc192bdca794697494da799749f8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 647bdc192bdca794697494da799749f8,
         type: 3}
@@ -1344,7 +1344,7 @@ Rigidbody:
   m_Mass: 450
   m_Drag: 0.15
   m_AngularDrag: 0.2
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_CenterOfMass: {x: 0, y: -0.5, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -1359,7 +1359,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &4733674485574386864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1387,7 +1387,9 @@ MonoBehaviour:
   - {fileID: 8806340317892262935}
   isGrounded: 0
   rb: {fileID: 0}
+  timeInAir: 0
   gravityForce: 0
+  speed: 0
 --- !u!114 &5650116045267284527
 MonoBehaviour:
   m_ObjectHideFlags: 0
