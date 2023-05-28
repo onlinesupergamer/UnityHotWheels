@@ -1404,6 +1404,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throttleInput: 0
   steeringInput: 0
+  throttleAxis: Throttle
+  steeringAxis: Steering
   gmManager: {fileID: 0}
 --- !u!4 &882623744508185241 stripped
 Transform:

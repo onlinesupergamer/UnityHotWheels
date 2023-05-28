@@ -47,16 +47,13 @@ public class Drive : MonoBehaviour
     {
         throttleInput = playerInputs.throttleInput;
         steeringInput = playerInputs.steeringInput;
-
-       
-        
+     
 
         speed = Vector3.Dot(transform.forward, rb.velocity);
 
-        //The code here makes no sense, I don't know how this is working, but it fixed the inverted steering and I don't care why at this point
+        //Inverted steering needs to be fixed here
         if (speed < 0) steeringInput = steeringInput * -1f; else steeringInput = steeringInput * 1f;
-
-        
+     
 
         if (isGrounded)
         {
@@ -88,17 +85,12 @@ public class Drive : MonoBehaviour
             Vector3 friction = -transform.right * (sideSpeed / Time.deltaTime / 25); //Friction Support
             rb.AddForce(friction, ForceMode.Acceleration);
 
-            //rb.AddTorque(transform.up * -rb.angularVelocity.y * 3500);
 
             timeInAir = 0;
-
             rb.angularDrag = 0;
 
             if (rb.velocity.magnitude >= 100)
                 rb.velocity = Vector3.ClampMagnitude(rb.velocity, 100);
-
-            
-
 
         }
 
@@ -111,11 +103,7 @@ public class Drive : MonoBehaviour
             timeInAir += Time.deltaTime;
 
 
-        }
-
-        
-
-            
+        }         
 
         foreach (Transform wheel in frontWheels) 
         {
@@ -132,12 +120,7 @@ public class Drive : MonoBehaviour
         }
 
         rb.AddForce(gravityVector * gravityForce * Time.fixedDeltaTime, ForceMode.Acceleration);
-
         
-
     }
 
-
 }
-
-

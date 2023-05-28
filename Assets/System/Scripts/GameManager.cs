@@ -17,6 +17,13 @@ public class GameManager : MonoBehaviour
     public GameObject DefaultCar;
     public CinemachineVirtualCamera virtualCamera;
 
+    public CameraEffects camEffects;
+
+
+    private void Awake()
+    {
+        
+    }
 
     void Start()
     {
@@ -32,19 +39,23 @@ public class GameManager : MonoBehaviour
 
 
 
-        GameObject cartmpbffr =  Instantiate(_PlayerCar, spawnLocation.transform.position, spawnLocation.transform.rotation);
-        cartmpbffr.tag = "Player";
+
+        GameObject carbuffer =  Instantiate(_PlayerCar, spawnLocation.transform.position, spawnLocation.transform.rotation);
+        carbuffer.tag = "Player";
 
         GameObject liveTarget = GameObject.FindWithTag("CameraTarget");
-        if (liveTarget == null || cartmpbffr == null)
+        if (liveTarget == null || carbuffer == null)
             Debug.LogError("Camera is fucked, should not be null");
 
         virtualCamera.LookAt = liveTarget.transform;
         virtualCamera.Follow = liveTarget.transform;
         if (virtualCamera.LookAt == null)
-            Debug.LogError("Still null, dipshit");
-
-
+        {
+            Debug.LogError("Still null");
+            return;
+        }
+        
+        camEffects.InitializeComponents();
     }
 
 

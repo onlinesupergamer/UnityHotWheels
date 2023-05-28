@@ -2,73 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-/*This whole file needs to be fixed, the component init seems to be wrong
- * 
- * 
- * 
- * */
+
+
 
 public class CameraEffects : MonoBehaviour
 {
-    public CinemachineVirtualCamera virtualCamera;
-
-    GameObject player;
-    Rigidbody playerRb;
-    Drive driveScript;
-    CinemachineTransposer transposer;
-    CinemachineBasicMultiChannelPerlin noiseIntensity;
+    public CinemachineVirtualCamera virtualCamera; 
+    public CinemachineBasicMultiChannelPerlin noiseIntensity;
+    public Drive driveScript;
 
 
-    void Start()
+    public void InitializeComponents() 
     {
-        player = GameObject.FindWithTag("Player");//This should check for the player tag
-        playerRb = player.GetComponent<Rigidbody>();
-        
-        driveScript = player.GetComponent<Drive>();
-
-        transposer = virtualCamera.GetCinemachineComponent<CinemachineTransposer>();
         noiseIntensity = virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-       
+        driveScript = GameObject.FindWithTag("Player").GetComponent<Drive>();//I don't like this line
+
+
+
     }
- 
+
     void Update()
     {
-        if (player == null) 
-        {
-            
-        }
-
-        
-        float playerSpeed = player.GetComponent<Drive>().speed;//Optimize, Everything in the method is slow
-
-        float shake = playerSpeed * Time.deltaTime;
-        Mathf.Clamp(shake, 0.0f, 1.0f);
-
-        if (transposer == null) 
-        {
-            transposer = virtualCamera.GetCinemachineComponent<CinemachineTransposer>();
-        }
-
         if (noiseIntensity == null) 
         {
-            noiseIntensity = virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-
+            Debug.LogError("Perlin noise not found");
+            return;
         }
-
-
-        if (!driveScript.isGrounded)
+        if (driveScript == null) 
         {
-            shake = 0.0f;
-            noiseIntensity.m_AmplitudeGain = shake;
-            transposer.m_FollowOffset.y = 2 * driveScript.timeInAir;
-            
-
-
+            Debug.LogError("Drive Script not found, Game stupid");
+            return;
         }
 
 
-
-            transposer.m_FollowOffset.y = 0.85f;
+        if(driveScript.isGrounded)
+            noiseIntensity.m_AmplitudeGain = Mathf.Clamp(driveScript.speed / 2 * Time.deltaTime, 0, 1.0f);
+        else
+            noiseIntensity.m_AmplitudeGain = 0f;
 
 
 
