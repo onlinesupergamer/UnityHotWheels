@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - GameManager
   - CameraTarget
+  - Wall
+  - Through
   layers:
   - Default
   - TransparentFX

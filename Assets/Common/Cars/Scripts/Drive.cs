@@ -21,6 +21,8 @@ public class Drive : MonoBehaviour
     public Transform[] wheelTransforms;
     public Transform[] frontWheels;
     public Transform[] frontWheelModels;
+    public Transform[] rearWheelModels;
+
     public bool isGrounded;
 
     Vector3 gravityVector;
@@ -52,13 +54,14 @@ public class Drive : MonoBehaviour
         speed = Vector3.Dot(transform.forward, rb.velocity);
 
         //Inverted steering needs to be fixed here
-        if (speed < 0) steeringInput = steeringInput * -1f; else steeringInput = steeringInput * 1f;
+        float normalSteering = steeringInput;
+        if (speed < 0) steeringInput = steeringInput * -1f; else steeringInput = normalSteering * 1f;
      
 
         if (isGrounded)
         {
 
-            gravityForce = 1500;
+            gravityForce = 500f;
 
             if (throttleInput != 0f && speed >= 10f)
                 gravityVector = -hit.normal;
@@ -113,9 +116,21 @@ public class Drive : MonoBehaviour
         }
 
         foreach (Transform wheel in frontWheelModels)
-        {
+        {            
+
+
+            if(speed >= 0)
+                wheel.localRotation = Quaternion.Euler(0, steeringInput * 45, 0);
             
-            wheel.transform.localRotation = Quaternion.Euler(Vector3.up * steeringInput * 45f); //Add Lerp
+
+            
+    
+
+        }
+
+        foreach (Transform wheel in rearWheelModels)
+        {
+            wheel.Rotate(30 * Time.fixedDeltaTime, 0, 0);
 
         }
 

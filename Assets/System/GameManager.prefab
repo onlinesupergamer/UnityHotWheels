@@ -13,7 +13,7 @@ GameObject:
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -53,3 +53,4 @@ MonoBehaviour:
   DefaultCar: {fileID: 537165521306259491, guid: 436081fb83761d244a22a69615ecb1ce,
     type: 3}
   virtualCamera: {fileID: 0}
+  camEffects: {fileID: 0}

@@ -9,13 +9,13 @@ public class CameraEffects : MonoBehaviour
 {
     public CinemachineVirtualCamera virtualCamera; 
     public CinemachineBasicMultiChannelPerlin noiseIntensity;
-    public Drive driveScript;
+    public AdvancedRayCastDrive driveScript;
 
 
     public void InitializeComponents() 
     {
         noiseIntensity = virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        driveScript = GameObject.FindWithTag("Player").GetComponent<Drive>();//I don't like this line
+        driveScript = GameObject.FindWithTag("Player").GetComponent<AdvancedRayCastDrive>();//I don't like this line
 
 
 
