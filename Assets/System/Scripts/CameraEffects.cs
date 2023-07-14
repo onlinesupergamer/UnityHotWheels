@@ -36,7 +36,7 @@ public class CameraEffects : MonoBehaviour
 
 
         if(driveScript.isGrounded)
-            noiseIntensity.m_AmplitudeGain = Mathf.Clamp(driveScript.speed / 2 * Time.deltaTime, 0, 1.0f);
+            noiseIntensity.m_AmplitudeGain = Mathf.Clamp(driveScript.speed / 2 * Time.deltaTime, 0, 0.5f);
         else
             noiseIntensity.m_AmplitudeGain = 0f;
 
